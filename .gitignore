@@ -1,0 +1,16 @@
+# Data & Environment
+minerl_data/
+logs/
+videos_phase3/
+*.csv
+
+# Python Metadata
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.DS_Store
+
+# Virtual Env (Just in case)
+venv/
+env/
+.env
