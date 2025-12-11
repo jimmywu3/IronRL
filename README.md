@@ -1,34 +1,75 @@
-# MineRL PPO Agent
+# IronRL: MineRL PPO Agent
 
-This project implements a PPO agent for the MineRL environment.
+This repository implements a Proximal Policy Optimization (PPO) agent for the MineRL environment. It is designed to be cross-platform, with specific compatibility fixes for Apple Silicon (M1/M2) architecture.
 
-## ⚠️ Important Prerequisites
-**MineRL v0.4 requires specific system dependencies to run.**
+## ⚠️ Prerequisites
 
-1.  **Python Version:** You must use **Python 3.9.4**
-2.  **Java Version:** You must have **Java 8 (JDK 8)** installed.
-    * *Note: Newer versions like Java 11 or 17 will cause the build to crash.*
+Before installing, ensure you have the following software:
+
+1.  **Python 3.8** (Strictly required).
+2.  **Java 8 (JDK 1.8)** (Strictly required for the Minecraft subprocess).
+    * *Note: Java 11, 17, or 21 will cause the build to crash with `Pack200` errors.*
+
+---
 
 ## Installation
 
-1.  **Install System Libraries** (Linux/Mac only):
-    * **Ubuntu/Debian:** `sudo apt-get install openjdk-8-jdk ffmpeg`
-    * **MacOS:** `brew install --cask adoptopenjdk/openjdk/adoptopenjdk8` and `brew install ffmpeg`
+### Option A: Windows / Linux / Intel Mac (Standard)
+If you are on a standard machine, installation is straightforward.
 
-2.  **Create a Virtual Environment:**
+1.  **Create a virtual environment (Python 3.8):**
     ```bash
-    python3.8 -m venv venv
-    source venv/bin/activate  # On Windows: venv\Scripts\activate
+    conda create -n minerl_env python=3.8
+    conda activate minerl_env
     ```
 
-3.  **Install Python Dependencies:**
+2.  **Install Dependencies:**
     ```bash
-    pip install --upgrade pip
     pip install -r requirements.txt
     ```
 
-## How to Run
+### Option B: Apple Silicon (M1/M2/M3) Mac
+Running legacy MineRL on Apple Silicon requires specific emulation steps. Please follow these commands exactly.
 
-To train the agent:
+**1. Create an Intel (x86_64) Emulated Environment:**
+   You must force Conda to use Intel architecture, or the environment will crash.
+   ```bash
+   CONDA_SUBDIR=osx-64 conda create -n minerl_env python=3.8
+   conda activate minerl_env
+   conda config --env --set subdir osx-64
+   ```
+   
+## Downgrade Build tools
+Modern pip/setuptools are incompatible with older gym versions.
+
 ```bash
+pip install "pip<24.0" "setuptools==65.5.0" "wheel<0.40.0"
+```
+
+## Install Pre-Built OpenCV
+
+```bash
+pip install "opencv-python<4.6" --only-binary=:all:
+```
+
+## Set Java 8 Home
+```bash
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
+```
+
+## Install MineRL with Patch
+```bash
+sh setup_mac.sh
+```
+
+## Install Remaining Dependencies
+```bash
+pip install -r requirements.txt
+```
+
+## How To Run
+```bash
+# (Mac Only) export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 python train_ppo_phase3.py
+```
+
