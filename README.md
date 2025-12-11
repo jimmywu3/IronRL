@@ -9,13 +9,30 @@ Before installing, ensure you have the following software:
 1.  **Python 3.8** (Strictly required).
 2.  **Java 8 (JDK 1.8)** (Strictly required for the Minecraft subprocess).
     * *Note: Java 11, 17, or 21 will cause the build to crash with `Pack200` errors.*
+    ```bash
+    brew install --cask temurin@8
+    ```
 
 ---
 
 ## Installation
 
-### Option A: Windows / Linux / Intel Mac (Standard)
-If you are on a standard machine, installation is straightforward.
+
+### Option A: Apple Silicon (M1/M2/M3) Mac (Recommended)
+Running legacy MineRL on Apple Silicon requires specific emulation steps. Please follow these commands exactly.
+
+**1. Create an Intel (x86_64) Emulated Environment:**
+   You must force Conda to use Intel architecture, or the environment will crash.\
+   Installation for Conda: https://www.anaconda.com/docs/getting-started/miniconda/install
+   ```bash
+   CONDA_SUBDIR=osx-64 conda create -n minerl_env python=3.8
+   conda activate minerl_env
+   conda config --env --set subdir osx-64
+   ```
+
+### Option B: Windows / Linux / Intel Mac 
+If you are on a standard machine, installation is straightforward.\
+Installation for Conda: https://www.anaconda.com/docs/getting-started/miniconda/install
 
 1.  **Create a virtual environment (Python 3.8):**
     ```bash
@@ -27,17 +44,6 @@ If you are on a standard machine, installation is straightforward.
     ```bash
     pip install -r requirements.txt
     ```
-
-### Option B: Apple Silicon (M1/M2/M3) Mac
-Running legacy MineRL on Apple Silicon requires specific emulation steps. Please follow these commands exactly.
-
-**1. Create an Intel (x86_64) Emulated Environment:**
-   You must force Conda to use Intel architecture, or the environment will crash.
-   ```bash
-   CONDA_SUBDIR=osx-64 conda create -n minerl_env python=3.8
-   conda activate minerl_env
-   conda config --env --set subdir osx-64
-   ```
    
 ## Downgrade Build tools
 Modern pip/setuptools are incompatible with older gym versions.
