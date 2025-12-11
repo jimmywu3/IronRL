@@ -29,21 +29,6 @@ Running legacy MineRL on Apple Silicon requires specific emulation steps. Please
    conda activate minerl_env
    conda config --env --set subdir osx-64
    ```
-
-### Option B: Windows / Linux / Intel Mac 
-If you are on a standard machine, installation is straightforward.\
-Installation for Conda: https://www.anaconda.com/docs/getting-started/miniconda/install
-
-1.  **Create a virtual environment (Python 3.8):**
-    ```bash
-    conda create -n minerl_env python=3.8
-    conda activate minerl_env
-    ```
-
-2.  **Install Dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
    
 ## Downgrade Build tools
 Modern pip/setuptools are incompatible with older gym versions.
@@ -64,6 +49,7 @@ export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 ```
 
 ## Install MineRL with Patch
+Will take a bit.
 ```bash
 sh setup_mac.sh
 ```
@@ -74,6 +60,7 @@ pip install -r requirements.txt
 ```
 
 ## How To Run
+Will create a video file in folder videos_phase3 on first episdoe and every 5th episodes after.
 ```bash
 # (Mac Only) export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 python train_ppo_phase3.py

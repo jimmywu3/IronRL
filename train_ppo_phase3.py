@@ -49,7 +49,7 @@ class VideoOverlayWrapper(gym.Wrapper):
     def set_episode(self, ep_num):
         self.current_episode_num = ep_num
         # Logic: Record every 5th episode
-        self.is_recording = (ep_num % 5 == 0)
+        self.is_recording = (ep_num % 5 == 0 or ep_num == 1)
 
     def process_frame(self, obs):
         curr_inv = obs['inventory']

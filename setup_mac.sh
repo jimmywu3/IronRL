@@ -29,7 +29,7 @@ cp ../backup_stuff/build.gradle minerl/Malmo/Minecraft/build.gradle
 
 
 # 5. Install
-echo "📦 Installing MineRL (This may take a few minutes)..."
+echo "  Installing MineRL (This may take a few minutes)..."
 pip install .
 
 # 6. Clean up
