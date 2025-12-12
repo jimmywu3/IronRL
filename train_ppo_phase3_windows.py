@@ -352,7 +352,7 @@ def main():
     env = ActionRepeatWrapper(env, repeat=4) 
     env = CaveRewardWrapper(env, classifier)
     
-    # 🎥 CUSTOM VIDEO WRAPPER (Phase 3 Directory)
+    #  CUSTOM VIDEO WRAPPER (Phase 3 Directory)
     video_wrapper = VideoOverlayWrapper(env, directory='videos_phase3')
     env = video_wrapper 
     
@@ -573,10 +573,10 @@ def main():
                 ep_score = info.get('raw_reward', 0.0)
                 stats = info.get('production', {})
                 
-                summ_str = f"🎬 Ep {global_episode_count} | Score: {ep_score:.1f} | "
-                if stats.get('wooden_pickaxe', 0) > 0: summ_str += "⛏️ WOOD | "
-                if stats.get('stone_pickaxe', 0) > 0: summ_str += "⚡ STONE PICK | "
-                if stats.get('iron_ore', 0) > 0: summ_str += "💎 IRON FOUND!"
+                summ_str = f" Ep {global_episode_count} | Score: {ep_score:.1f} | "
+                if stats.get('wooden_pickaxe', 0) > 0: summ_str += " WOOD | "
+                if stats.get('stone_pickaxe', 0) > 0: summ_str += " STONE PICK | "
+                if stats.get('iron_ore', 0) > 0: summ_str += " IRON FOUND!"
                 print(summ_str)
                 
                 writer.writerow([
