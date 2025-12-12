@@ -112,8 +112,8 @@ pip install -r requirements.txt
 ```
 
 ## How To Run
-Will create a video file in folder videos_phase3 on the first episode and every 5th episode after. It takes 1-3 minutes to boot up Gradle/Minecraft. Ignore the initial warnings.
-
+Will create a video file in folder videos_phase3 on the first episode and every 5th episode after. It takes 1-3 minutes to boot up Gradle/Minecraft. Ignore the initial warnings.\
+Will take 10 minutes to load.
 ```bash
 python train_ppo_phase3_windows.py
 ```
