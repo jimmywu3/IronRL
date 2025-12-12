@@ -67,3 +67,43 @@ Will give warnings, ignore them. Takes 1-3 minutes to boot up Gradle.
 python train_ppo_phase3.py
 ```
 
+---
+
+### Option B: Windows 10/11
+## 1. Install Java 8 (JDK 1.8):
+
+Download Eclipse Temurin JDK 8 (LTS) installer (.msi) from [Adoptium.net.](https://adoptium.net/temurin/releases/?version=8)
+
+Crucial: During installation, select "Set JAVA_HOME variable" in the setup menu.
+
+## 2. Install C++ Build Tools:
+
+If you encounter errors building gym, ensure you have Visual Studio Build Tools installed with the "Desktop development with C++" workload.
+
+## 3. Create Conda Environment:
+
+```bash
+conda create -n minerl_env python=3.8
+conda activate minerl_env
+```
+
+## 4. Downgrade Build Tools: Required for legacy Gym compatibility.
+```bash
+pip install "pip<24.0" "setuptools==65.5.0" "wheel<0.40.0"
+```
+
+## 5. Install Dependencies:
+```bash
+# Install MineRL explicitly
+pip install minerl==0.4.4
+
+# Install the rest
+pip install -r requirements.txt
+```
+
+## How To Run
+Will create a video file in folder videos_phase3 on the first episode and every 5th episode after. It takes 1-3 minutes to boot up Gradle/Minecraft. Ignore the initial warnings.
+
+```bash
+python train_ppo_phase3.py
+```
