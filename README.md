@@ -60,7 +60,8 @@ pip install -r requirements.txt
 ```
 
 ## How To Run
-Will create a video file in folder videos_phase3 on first episdoe and every 5th episodes after.
+Will create a video file in folder videos_phase3 on first episdoe and every 5th episodes after.\
+Will give warnings, ignore them. Takes 1-3 minutes to boot up Gradle.
 ```bash
 # (Mac Only) export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
 python train_ppo_phase3.py
