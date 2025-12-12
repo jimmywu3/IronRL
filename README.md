@@ -81,6 +81,13 @@ Crucial: During installation, select "Set JAVA_HOME variable" in the setup menu.
 If you encounter errors building gym, ensure you have Visual Studio Build Tools installed with the "Desktop development with C++" workload.
 
 ## 3. Create Conda Environment:
+If you don't have conda, use this to install conda: https://www.anaconda.com/docs/getting-started/miniconda/install
+```bash
+curl https://repo.anaconda.com/miniconda/Miniconda3-latest-Windows-x86_64.exe -o .\miniconda.exe
+start /wait "" .\miniconda.exe /S
+del .\miniconda.exe
+```
+Click the Windows key and search "Anaconda Prompt", open it we will be using this command prompt for the project.
 
 ```bash
 conda create -n minerl_env python=3.8
