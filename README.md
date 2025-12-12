@@ -13,6 +13,8 @@ Before installing, ensure you have the following software:
     brew install --cask temurin@8
     ```
 
+VERY IMPORTANT NOTE: WE HIGHLY RECOMMEND THE OPTION A INSTALLTION METHOD SINCE OPTION B TAKES 20+ MINUTES TO DOWNLOADx
+
 ---
 
 ## Installation
@@ -96,13 +98,14 @@ conda activate minerl_env
 
 ## 4. Downgrade Build Tools: Required for legacy Gym compatibility.
 ```bash
-pip install "pip<24.0" "setuptools==65.5.0" "wheel<0.40.0"
+python -m pip install "pip<24.0" "setuptools==65.5.0" "wheel<0.40.0"
 ```
 
 ## 5. Install Dependencies:
+This will take 10-15 minutes which is why we recommend doing option A.
 ```bash
 # Install MineRL explicitly
-pip install minerl==0.4.4
+setup_windows.bat
 
 # Install the rest
 pip install -r requirements.txt
@@ -112,5 +115,5 @@ pip install -r requirements.txt
 Will create a video file in folder videos_phase3 on the first episode and every 5th episode after. It takes 1-3 minutes to boot up Gradle/Minecraft. Ignore the initial warnings.
 
 ```bash
-python train_ppo_phase3.py
+python train_ppo_phase3_windows.py
 ```
