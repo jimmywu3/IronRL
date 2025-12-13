@@ -66,7 +66,11 @@ Will create a video file in folder videos_phase3 on first episdoe and every 5th 
 Will give warnings, ignore them. Takes 1-3 minutes to boot up Gradle.
 ```bash
 # (Mac Only) export JAVA_HOME="/Library/Java/JavaVirtualMachines/temurin-8.jdk/Contents/Home"
+# For Training
 python train_ppo_phase3.py
+
+# For Evaluation
+python eval_ppo_phase3.py
 ```
 
 ---
@@ -115,5 +119,9 @@ pip install -r requirements.txt
 Will create a video file in folder videos_phase3 on the first episode and every 5th episode after. It takes 1-3 minutes to boot up Gradle/Minecraft. Ignore the initial warnings.\
 Will take 10 minutes to load.
 ```bash
+# For training
 python train_ppo_phase3_windows.py
+
+# For Evaluation
+python eval_ppo_phase3.py
 ```
